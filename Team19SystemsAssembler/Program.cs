@@ -312,7 +312,10 @@ namespace Team19SystemsAssembler
                     opCode = new char[] { '1', '0', '0', '0' };
                     char[] regRand = new char[4];
                     regRand = fourBitBinary(int.Parse(commandParts[1].Replace("r", ""))).ToCharArray();
-                    
+                    for (int i = 0; i < 24; i++)
+                    {
+                        command[i] = '0';
+                    }
                     for (int i = 0; i < 4; i++)
                     {
                         command[8 + i] = regRand[i];
