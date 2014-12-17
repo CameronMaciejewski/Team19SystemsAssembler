@@ -10,7 +10,7 @@ namespace Team19SystemsAssembler
     {
         static void Main(string[] args)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Cameron\Documents\2014-2015 School Year\Systems\assemblerInput.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\jsnyde\230p4\assemblerInput.txt");
 
             string[] outputLines;
             List<string> outputLineList = new List<string>();
@@ -46,7 +46,7 @@ namespace Team19SystemsAssembler
             outputLines = outputLineList.ToArray<String>();
            
             //System.IO.File.WriteAllText(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif", "");
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Cameron\Documents\2014-2015 School Year\Systems\MemoryInitialization.mif"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif""))
            {
                 foreach (string line in outputLines)
                 {
