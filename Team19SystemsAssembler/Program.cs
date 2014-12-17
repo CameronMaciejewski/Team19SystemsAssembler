@@ -46,7 +46,7 @@ namespace Team19SystemsAssembler
             outputLines = outputLineList.ToArray<String>();
            
             //System.IO.File.WriteAllText(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif", "");
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif""))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif"))
            {
                 foreach (string line in outputLines)
                 {
