@@ -1,3 +1,8 @@
 c:\users\cameron\documents\visual studio 2013\Projects\Team19SystemsAssembler\Team19SystemsAssembler\bin\Debug\Team19SystemsAssembler.exe.config
 C:\Users\Jakob\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\bin\Debug\Team19SystemsAssembler.exe.config
 C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\bin\Debug\Team19SystemsAssembler.exe.config
+C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\bin\Debug\Team19SystemsAssembler.exe
+C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\bin\Debug\Team19SystemsAssembler.pdb
+C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\obj\Debug\Team19SystemsAssembler.csprojResolveAssemblyReference.cache
+C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\obj\Debug\Team19SystemsAssembler.exe
+C:\Users\Cameron\Documents\GitHub\Team19SystemsAssembler\Team19SystemsAssembler\Team19SystemsAssembler\obj\Debug\Team19SystemsAssembler.pdb

@@ -10,7 +10,7 @@ namespace Team19SystemsAssembler
     {
         static void Main(string[] args)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\jsnyde\230p4\assemblerInput.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Cameron\Documents\2014-2015 School Year\Systems\assemblerInput.txt");
 
             string[] outputLines;
             List<string> outputLineList = new List<string>();
@@ -26,10 +26,11 @@ namespace Team19SystemsAssembler
             {
                 char[] command = new char[24];
                 command = generateCommand(lines[i]);
+                string commandString = new string(command);
                 StringBuilder sb = new StringBuilder();
                 sb.Append(i+1);
                 sb.Append(" : ");
-                sb.Append(command.ToString());
+                sb.Append(commandString);
                 sb.Append(";");
                 outputLineList.Add(sb.ToString());
 
@@ -38,7 +39,7 @@ namespace Team19SystemsAssembler
             if (lines.Length < 1024){
                 StringBuilder sb2 = new StringBuilder();
                 sb2.Append("[");
-                sb2.Append(lines.Length);
+                sb2.Append(lines.Length + 1);
                 sb2.Append("..1023] : 000000000000000000000000;");
                 outputLineList.Add(sb2.ToString());
             }
@@ -46,7 +47,7 @@ namespace Team19SystemsAssembler
             outputLines = outputLineList.ToArray<String>();
            
             //System.IO.File.WriteAllText(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif", "");
-           using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\jsnyde\230p4\MemoryInitialization.mif"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Cameron\Documents\2014-2015 School Year\Systems\MemoryInitialization.mif"))
            {
                 foreach (string line in outputLines)
                 {
@@ -230,7 +231,7 @@ namespace Team19SystemsAssembler
                     regTNum = int.Parse(commandParts[3].Replace("r", ""));
                     regD = fourBitBinary(regDNum).ToCharArray();
                     regS = fourBitBinary(regSNum).ToCharArray();
-                    regT = fourBitBinary(regSNum).ToCharArray();
+                    regT = fourBitBinary(regTNum).ToCharArray();
                     for (int i = 0; i < 3; i++)
                     {
                         command[14 - i] = opx[i];
@@ -251,7 +252,7 @@ namespace Team19SystemsAssembler
                     int regTNumD;
                     char[] regTD = new char[4];
                     char[] regSD = new char[4];
-                    regSNumD = int.Parse(commandParts[1].Replace("r", ""));
+                    regTNumD = int.Parse(commandParts[1].Replace("r", ""));
                     string[] partsOfCommandParts;
                     int immediate = 0;
                     switch(commandParts[0])
@@ -259,7 +260,9 @@ namespace Team19SystemsAssembler
                         case "addi":
                             tempOpCode = "0101";
                             opCode = tempOpCode.ToCharArray();
-                            regTNumD = int.Parse(commandParts[2].Replace("r", ""));
+                            regSNumD = int.Parse(commandParts[2].Replace("r", ""));
+                            regSD = fourBitBinary(regSNumD).ToCharArray();
+                            regTD = fourBitBinary(regTNumD).ToCharArray();
                             immediate = int.Parse(commandParts[3]);
                             break;
                         case "ldw":
@@ -267,7 +270,7 @@ namespace Team19SystemsAssembler
                             opCode = tempOpCode.ToCharArray();
 
                             partsOfCommandParts = commandParts[2].Split(')');
-                            regTNumD = int.Parse(partsOfCommandParts[1].Replace("r", ""));
+                            regSNumD = int.Parse(partsOfCommandParts[1].Replace("r", ""));
                             immediate = int.Parse(partsOfCommandParts[0].Replace("(", ""));
                             break;
                         case "stw":
@@ -276,7 +279,7 @@ namespace Team19SystemsAssembler
 
                             partsOfCommandParts = commandParts[2].Split(')');
 
-                            regTNumD = int.Parse(partsOfCommandParts[1].Replace("r", ""));
+                            regSNumD = int.Parse(partsOfCommandParts[1].Replace("r", ""));
                             immediate = int.Parse(partsOfCommandParts[0].Replace("(", ""));
                             break;
                         default:
@@ -396,7 +399,7 @@ namespace Team19SystemsAssembler
                 binaryNum = remainder.ToString() + binaryNum;
             }
 
-            binaryNum = binaryNum.PadLeft(16, '0');
+            binaryNum = binaryNum.PadLeft(numBits, '0');
 
 
             if (negative)
