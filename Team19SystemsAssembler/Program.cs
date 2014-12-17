@@ -235,9 +235,20 @@ namespace Team19SystemsAssembler
                             break;
                     }
                     #endregion
-                    regDNum = int.Parse(commandParts[1].Replace("r", ""));
-                    regSNum = int.Parse(commandParts[2].Replace("r", ""));
-                    regTNum = int.Parse(commandParts[3].Replace("r", ""));
+                    
+                    if (commandParts[0] == "jr")
+                    {
+                        regTNum = 0;
+                        regDNum = 0;
+                        regSNum = int.Parse(commandParts[1].Replace("r", ""));
+                    }
+                    else
+                    {
+                        regDNum = int.Parse(commandParts[1].Replace("r", ""));
+                        regTNum = int.Parse(commandParts[3].Replace("r", ""));
+                        regSNum = int.Parse(commandParts[2].Replace("r", ""));
+                    }
+                    
                     regD = fourBitBinary(regDNum).ToCharArray();
                     regS = fourBitBinary(regSNum).ToCharArray();
                     regT = fourBitBinary(regTNum).ToCharArray();
