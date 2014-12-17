@@ -64,6 +64,9 @@ namespace Team19SystemsAssembler
             #region Init
             switch (commandParts[0])
             {
+                case "b":
+                    instructionType = 'B';
+                    break;
                 case "bne":
                     instructionType = 'B';
                     break;
