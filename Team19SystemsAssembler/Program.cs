@@ -34,7 +34,6 @@ namespace Team19SystemsAssembler
                 sb.Append(";");
                 outputLineList.Add(sb.ToString());
 
-
             }
             if (lines.Length < 1024){
                 StringBuilder sb2 = new StringBuilder();
