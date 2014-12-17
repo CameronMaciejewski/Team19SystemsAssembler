@@ -131,6 +131,10 @@ namespace Team19SystemsAssembler
                     int label = int.Parse(commandParts[1]);
                     switch (commandParts[0])
                     {
+                        case "b":
+                            tempCond = "0000";
+                            cond = tempCond.ToCharArray();
+                            break;
                         case "bne":
                             tempCond = "1100";
                             cond = tempCond.ToCharArray();
