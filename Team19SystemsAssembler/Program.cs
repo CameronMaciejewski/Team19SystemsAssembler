@@ -112,6 +112,9 @@ namespace Team19SystemsAssembler
                 case "stw":
                     instructionType = 'D';
                     break;
+                case "rand":
+                    instructionType = 'X';
+                    break;
                 default:
                     instructionType = 'E';
                     break;                
@@ -301,6 +304,18 @@ namespace Team19SystemsAssembler
                         command[4 + i] = regSD[i];
                         command[i] = regTD[i];
                         command[19 - i] = cond[i];
+                    }
+                    break;
+                #endregion
+                #region X(Random)
+                case 'X':
+                    opCode = new char[] { '1', '0', '0', '0' };
+                    char[] regRand = new char[4];
+                    regRand = fourBitBinary(int.Parse(commandParts[2].Replace("r", ""))).ToCharArray();
+                    
+                    for (int i = 0; i < 4; i++)
+                    {
+                        command[8 + i] = regRand[i];
                     }
                     break;
                 #endregion
