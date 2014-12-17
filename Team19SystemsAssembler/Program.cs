@@ -250,7 +250,7 @@ namespace Team19SystemsAssembler
                 #endregion
                 #region D
                 case 'D':
-                    int regSNumD;
+                    int regSNumD = 0;
                     int regTNumD;
                     char[] regTD = new char[4];
                     char[] regSD = new char[4];
@@ -262,9 +262,7 @@ namespace Team19SystemsAssembler
                         case "addi":
                             tempOpCode = "0101";
                             opCode = tempOpCode.ToCharArray();
-                            regSNumD = int.Parse(commandParts[2].Replace("r", ""));
-                            regSD = fourBitBinary(regSNumD).ToCharArray();
-                            regTD = fourBitBinary(regTNumD).ToCharArray();
+                            regSNumD = int.Parse(commandParts[2].Replace("r", ""));                           
                             immediate = int.Parse(commandParts[3]);
                             break;
                         case "ldw":
@@ -284,12 +282,14 @@ namespace Team19SystemsAssembler
                             regSNumD = int.Parse(partsOfCommandParts[1].Replace("r", ""));
                             immediate = int.Parse(partsOfCommandParts[0].Replace("(", ""));
                             break;
-                        default:
+                        default:                          
                             tempOpCode = "0000";
                             opCode = tempOpCode.ToCharArray();
                             break;
 
                     }
+                    regSD = fourBitBinary(regSNumD).ToCharArray();
+                    regTD = fourBitBinary(regTNumD).ToCharArray();
                     cond = new char[]{'0', '0', '0', '0'};
                     s = '0';
                     command[15] = s;
