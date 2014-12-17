@@ -311,7 +311,7 @@ namespace Team19SystemsAssembler
                 case 'X':
                     opCode = new char[] { '1', '0', '0', '0' };
                     char[] regRand = new char[4];
-                    regRand = fourBitBinary(int.Parse(commandParts[2].Replace("r", ""))).ToCharArray();
+                    regRand = fourBitBinary(int.Parse(commandParts[1].Replace("r", ""))).ToCharArray();
                     
                     for (int i = 0; i < 4; i++)
                     {
